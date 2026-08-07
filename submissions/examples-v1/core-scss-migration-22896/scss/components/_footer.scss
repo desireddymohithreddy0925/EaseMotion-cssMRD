@@ -8,20 +8,20 @@
 :root {
   /* Footer Colors */
   --ease-footer-bg: linear-gradient(135deg, #0f0f23 0%, #1a1a2e 50%, #16213e 100%);
-  --ease-footer-bg-light: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 50%, #e2e8f0 100%);
+  --ease-footer-bg-light: linear-gradient(135deg, var(--ease-color-neutral-50, #f8fafc) 0%, var(--ease-color-neutral-100, #f1f5f9) 50%, var(--ease-color-neutral-200, #e2e8f0) 100%);
   --ease-footer-border: rgba(255, 255, 255, 0.1);
   --ease-footer-border-light: rgba(0, 0, 0, 0.1);
   
   /* Text Colors */
   --ease-footer-text: #9ca3af;
-  --ease-footer-text-light: #64748b;
+  --ease-footer-text-light: var(--ease-color-neutral-500, #64748b);
   --ease-footer-heading: #f3f4f6;
-  --ease-footer-heading-light: #1e293b;
+  --ease-footer-heading-light: var(--ease-color-text, #1e293b);
   
   /* Accent Colors */
   --ease-footer-accent: #6366f1;
-  --ease-footer-accent-hover: #8b5cf6;
-  --ease-footer-accent-gradient: linear-gradient(135deg, #6366f1 0%, #8b5cf6 50%, #ec4899 100%);
+  --ease-footer-accent-hover: var(--ease-color-secondary, #8b5cf6);
+  --ease-footer-accent-gradient: linear-gradient(135deg, #6366f1 0%, var(--ease-color-secondary, #8b5cf6) 50%, #ec4899 100%);
   
   /* Spacing */
   --ease-footer-padding: 4rem 2rem 2rem;
@@ -71,7 +71,7 @@
   
   .ease-footer-social a:hover {
     background: var(--ease-footer-accent-gradient);
-    color: #fff;
+    color: var(--ease-color-surface, #ffffff);
     border-color: transparent;
   }
   
@@ -185,7 +185,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #fff;
+  color: var(--ease-color-surface, #ffffff);
   font-size: 1.25rem;
   box-shadow: 0 8px 24px rgba(99, 102, 241, 0.3);
 }
@@ -346,7 +346,7 @@
   background: var(--ease-footer-accent-gradient);
   border: none;
   border-radius: 8px;
-  color: #fff;
+  color: var(--ease-color-surface, #ffffff);
   font-size: 0.85rem;
   font-weight: 600;
   cursor: pointer;
@@ -428,7 +428,7 @@
 }
 
 .ease-footer-social a:hover .icon {
-  color: #fff;
+  color: var(--ease-color-surface, #ffffff);
   transform: scale(1.1);
 }
 
@@ -694,7 +694,7 @@
 /* ── Print Styles ───────────────────────────────────────────── */
 @media print {
   .ease-footer {
-    background: #fff !important;
+    background: var(--ease-color-surface, #ffffff) !important;
     color: #000 !important;
     border-top: 2px solid #000;
   }

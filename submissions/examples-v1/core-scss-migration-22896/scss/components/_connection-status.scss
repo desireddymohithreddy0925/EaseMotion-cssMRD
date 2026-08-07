@@ -16,20 +16,20 @@
   .ease-connection-status.is-offline {
     transform: translateY(0);
     background: #ef4444;
-    color: #fff;
+    color: var(--ease-color-surface, #ffffff);
     animation: ease-pulse 2s infinite;
   }
   
   .ease-connection-status.is-online {
     transform: translateY(0);
     background: #10b981;
-    color: #fff;
+    color: var(--ease-color-surface, #ffffff);
   }
   
   .ease-connection-status.is-online-delay {
     transform: translateY(0);
     background: #10b981;
-    color: #fff;
+    color: var(--ease-color-surface, #ffffff);
     animation: none;
   }
   
@@ -43,11 +43,11 @@
   }
   
   .ease-connection-status.is-offline .ease-connection-status-icon {
-    background: #fff;
+    background: var(--ease-color-surface, #ffffff);
   }
   
   .ease-connection-status.is-online .ease-connection-status-icon {
-    background: #fff;
+    background: var(--ease-color-surface, #ffffff);
     animation: none;
   }
 }

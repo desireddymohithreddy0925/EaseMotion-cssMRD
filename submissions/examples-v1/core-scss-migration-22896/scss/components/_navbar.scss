@@ -59,7 +59,7 @@
 
   .ease-navbar-glass .ease-navbar-item {
     text-decoration: none;
-    color: var(--ease-color-muted, #64748b);
+    color: var(--ease-color-muted, var(--ease-color-neutral-500, #64748b));
     font-size: var(--ease-text-sm, 0.875rem);
     font-weight: 500;
     transition: color var(--ease-speed-fast, 150ms)

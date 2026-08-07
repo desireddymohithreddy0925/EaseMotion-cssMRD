@@ -2,8 +2,8 @@
   .ease-announce-bar {
     position: relative;
     padding: 0.75rem 1rem;
-    background: #6c63ff;
-    color: #fff;
+    background: var(--ease-color-primary, #6c63ff);
+    color: var(--ease-color-surface, #ffffff);
     text-align: center;
     font-size: 0.875rem;
     animation: ease-slide-down 0.3s ease;
@@ -14,7 +14,7 @@
   }
   
   .ease-announce-bar.is-info {
-    background: #6c63ff;
+    background: var(--ease-color-primary, #6c63ff);
   }
   
   .ease-announce-bar.is-success {

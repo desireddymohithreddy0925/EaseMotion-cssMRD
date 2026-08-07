@@ -24,8 +24,8 @@
 
 @layer utilities {
   .ease-bg-pink-override {
-    background-color: #fce7f3 !important;
-    color: #9d174d !important;
+    background-color: var(--ease-color-danger-light, #fce7f3) !important;
+    color: var(--ease-color-danger-dark, #9d174d) !important;
   }
 }
 

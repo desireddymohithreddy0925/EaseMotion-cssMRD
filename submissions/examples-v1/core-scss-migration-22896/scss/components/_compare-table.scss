@@ -7,8 +7,8 @@
     overflow-x: auto;
     display: block;
     border-radius: 0.5rem;
-    border: 1px solid #e2e8f0;
-    background: #fff;
+    border: 1px solid var(--ease-color-neutral-200, #e2e8f0);
+    background: var(--ease-color-surface, #ffffff);
   }
   
   .ease-compare-table th, .ease-compare-table td {
@@ -29,15 +29,15 @@
   .ease-compare-table .ease-compare-row-header {
     text-align: left;
     font-weight: 500;
-    color: #1e293b;
+    color: var(--ease-color-text, #1e293b);
   }
   
   .ease-compare-table tr:hover td {
-    background: #f8fafc;
+    background: var(--ease-color-neutral-50, #f8fafc);
   }
   
   .ease-compare-table tr:hover th {
-    background: #f8fafc;
+    background: var(--ease-color-neutral-50, #f8fafc);
   }
   
   .ease-compare-table tbody tr:nth-child(even) td {
@@ -45,13 +45,13 @@
   }
   
   .ease-compare-table tbody tr:nth-child(even):hover td {
-    background: #f1f5f9;
+    background: var(--ease-color-neutral-100, #f1f5f9);
   }
   
   .ease-compare-table .is-featured {
     background: #f0efff;
-    border-left: 3px solid #6c63ff;
-    border-right: 3px solid #6c63ff;
+    border-left: 3px solid var(--ease-color-primary, #6c63ff);
+    border-right: 3px solid var(--ease-color-primary, #6c63ff);
   }
   
   .ease-compare-table tr:hover .is-featured {
@@ -60,8 +60,8 @@
   
   .ease-compare-table .is-featured-label {
     display: inline-block;
-    background: #6c63ff;
-    color: #fff;
+    background: var(--ease-color-primary, #6c63ff);
+    color: var(--ease-color-surface, #ffffff);
     font-size: 0.65rem;
     font-weight: 700;
     text-transform: uppercase;

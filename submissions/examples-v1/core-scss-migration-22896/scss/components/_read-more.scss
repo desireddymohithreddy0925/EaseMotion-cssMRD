@@ -17,7 +17,7 @@
     left: 0;
     right: 0;
     height: 2rem;
-    background: linear-gradient(transparent, #fff);
+    background: linear-gradient(transparent, var(--ease-color-surface, #ffffff));
     pointer-events: none;
   }
   
@@ -38,7 +38,7 @@
     margin-top: 0.75rem;
     font-weight: 500;
     font-size: 0.875rem;
-    color: #6c63ff;
+    color: var(--ease-color-primary, #6c63ff);
     user-select: none;
   }
   
@@ -64,6 +64,6 @@
   .ease-read-more .ease-read-more-text {
     font-size: 0.875rem;
     line-height: 1.7;
-    color: #475569;
+    color: var(--ease-color-neutral-600, #475569);
   }
 }

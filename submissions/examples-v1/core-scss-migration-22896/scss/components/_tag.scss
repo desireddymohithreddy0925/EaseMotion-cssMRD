@@ -17,13 +17,13 @@
   
   .ease-tag-lg { font-size: 0.875rem; padding: 0.3rem 0.8rem; }
   
-  .ease-tag-success { background: #dcfce7; color: #15803d; }
+  .ease-tag-success { background: #dcfce7; color: var(--ease-color-success, #15803d); }
   
-  .ease-tag-danger { background: #fee2e2; color: #b91c1c; }
+  .ease-tag-danger { background: #fee2e2; color: var(--ease-color-danger, #b91c1c); }
   
-  .ease-tag-warning { background: #fef3c7; color: #b45309; }
+  .ease-tag-warning { background: #fef3c7; color: var(--ease-color-warning, #b45309); }
   
-  .ease-tag-info { background: #dbeafe; color: #1d4ed8; }
+  .ease-tag-info { background: #dbeafe; color: var(--ease-color-info-dark, #1d4ed8); }
   
   .ease-tag-outline {
     background: transparent;

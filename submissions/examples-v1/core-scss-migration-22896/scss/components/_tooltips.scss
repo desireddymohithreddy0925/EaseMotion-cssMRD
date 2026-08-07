@@ -1,8 +1,8 @@
 @layer easemotion-components {
 /* ── Tooltip Design Tokens ─────────────────────────────────── */
 :root {
-  --ease-tooltip-bg: var(--ease-color-neutral-900, #1f2937);
-  --ease-tooltip-text: var(--ease-color-neutral-50, #ffffff);
+  --ease-tooltip-bg: var(--ease-color-neutral-900, var(--ease-color-text, #1f2937));
+  --ease-tooltip-text: var(--ease-color-neutral-50, var(--ease-color-surface, #ffffff));
   --ease-tooltip-font-size: var(--ease-text-xs, 0.75rem);
   --ease-tooltip-padding: var(--ease-space-1, 0.25rem) var(--ease-space-2, 0.5rem);
   --ease-tooltip-radius: var(--ease-radius-sm, 0.25rem);

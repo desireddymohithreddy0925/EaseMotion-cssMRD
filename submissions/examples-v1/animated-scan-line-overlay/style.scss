@@ -1,4 +1,4 @@
-$scan-color: #6c63ff;
+$scan-color: var(--ease-color-primary, #6c63ff);
 $scan-glow: rgba(108, 99, 255, 0.3);
 $animation-duration: 3s;
 

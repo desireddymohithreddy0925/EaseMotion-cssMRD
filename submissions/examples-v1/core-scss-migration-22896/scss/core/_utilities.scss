@@ -299,14 +299,14 @@
 .ease-text-warning   { color: var(--ease-color-warning) !important; }
 .ease-text-info      { color: var(--ease-color-info) !important; }
 .ease-text-muted     { color: var(--ease-color-muted) !important; }
-.ease-text-white     { color: #ffffff !important; }
+.ease-text-white     { color: var(--ease-color-surface, #ffffff) !important; }
 
 .ease-bg-primary     { background-color: var(--ease-color-primary) !important; }
 .ease-bg-success     { background-color: var(--ease-color-success) !important; }
 .ease-bg-danger      { background-color: var(--ease-color-danger) !important; }
 .ease-bg-warning     { background-color: var(--ease-color-warning) !important; }
 .ease-bg-info        { background-color: var(--ease-color-info) !important; }
-.ease-bg-white       { background-color: #ffffff !important; }
+.ease-bg-white       { background-color: var(--ease-color-surface, #ffffff) !important; }
 .ease-bg-surface     { background-color: var(--ease-color-surface) !important; }
 .ease-bg-neutral     { background-color: var(--ease-color-neutral-100) !important; }
 
@@ -509,9 +509,9 @@
    ────────────────────────────────────────────────────────────── */
 
 .ease-scrollbar-thin {
-  --ease-scrollbar-track: #f1f5f9;
-  --ease-scrollbar-thumb: #cbd5e1;
-  --ease-scrollbar-thumb-hover: #94a3b8;
+  --ease-scrollbar-track: var(--ease-color-neutral-100, #f1f5f9);
+  --ease-scrollbar-thumb: var(--ease-color-neutral-300, #cbd5e1);
+  --ease-scrollbar-thumb-hover: var(--ease-color-neutral-400, #94a3b8);
   --ease-scrollbar-radius: 999px;
 
   scrollbar-width: thin;
@@ -561,14 +561,14 @@
 }
 
 .ease-scrollbar-auto:hover::-webkit-scrollbar-thumb {
-  background: var(--ease-scrollbar-thumb, #cbd5e1);
+  background: var(--ease-scrollbar-thumb, var(--ease-color-neutral-300, #cbd5e1));
 }
 
 @media (prefers-color-scheme: dark) {
   .ease-scrollbar-thin {
-    --ease-scrollbar-track: #1e293b;
-    --ease-scrollbar-thumb: #475569;
-    --ease-scrollbar-thumb-hover: #64748b;
+    --ease-scrollbar-track: var(--ease-color-text, #1e293b);
+    --ease-scrollbar-thumb: var(--ease-color-neutral-600, #475569);
+    --ease-scrollbar-thumb-hover: var(--ease-color-neutral-500, #64748b);
   }
 }
 
@@ -714,9 +714,9 @@
     gap: var(--ease-space-8, 2rem) !important;
   }
   
-  .ease-badge-info { background: #dbeafe; color: #1d4ed8; }
+  .ease-badge-info { background: #dbeafe; color: var(--ease-color-info-dark, #1d4ed8); }
   
-  .ease-badge-warning { background: #fef3c7; color: #b45309; }
+  .ease-badge-warning { background: #fef3c7; color: var(--ease-color-warning, #b45309); }
 
 /* ── Issue #10071: 6-Column and 12-Column Grid Utilities ── */
   .ease-grid-cols-6 { grid-template-columns: repeat(6, minmax(0, 1fr)) !important; }

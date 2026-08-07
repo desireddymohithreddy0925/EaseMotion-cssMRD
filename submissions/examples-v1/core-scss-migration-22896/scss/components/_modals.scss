@@ -40,7 +40,7 @@
 
   /* ── Modal Container ────────────────────────────────────────────────────── */
   .ease-modal {
-    background: var(--ease-color-bg, #ffffff);
+    background: var(--ease-color-bg, var(--ease-color-surface, #ffffff));
     border-radius: var(--ease-radius-lg, 1rem);
     box-shadow: var(--ease-shadow-2xl, 0 25px 50px -12px rgba(0, 0, 0, 0.25));
     max-width: 500px;
@@ -113,7 +113,7 @@
 
   .ease-modal-close:hover {
     background: var(--ease-color-neutral-100, #f3f4f6);
-    color: var(--ease-color-text, #111827);
+    color: var(--ease-color-text, var(--ease-color-neutral-900, #111827));
   }
 
   .ease-modal-close:focus-visible {

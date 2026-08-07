@@ -21,8 +21,8 @@
     width: 2.5rem;
     height: 2.5rem;
     border-radius: 50%;
-    background: #e2e8f0;
-    color: #475569;
+    background: var(--ease-color-neutral-200, #e2e8f0);
+    color: var(--ease-color-neutral-600, #475569);
     font-size: 0.8rem;
     font-weight: 700;
     border: 2px solid white;
@@ -38,7 +38,7 @@
     border-radius: 50%;
     overflow: hidden;
     background: #e0e7ff;
-    color: #6c63ff;
+    color: var(--ease-color-primary, #6c63ff);
     font-weight: 700;
     font-size: 0.9rem;
     flex-shrink: 0;
@@ -60,7 +60,7 @@
   width: 2.5rem;
   height: 2.5rem;
   border-radius: 9999px;
-  border: 2px solid #fff;
+  border: 2px solid var(--ease-color-surface, #ffffff);
   margin-right: var(--ease-avatar-overlap, -0.5rem);
   object-fit: cover;
   transition: transform 0.2s ease, margin-right 0.2s ease;
@@ -70,7 +70,7 @@
   justify-content: center;
   font-size: 0.85rem;
   font-weight: 600;
-  color: #fff;
+  color: var(--ease-color-surface, #ffffff);
   flex-shrink: 0;
   position: relative;
 }

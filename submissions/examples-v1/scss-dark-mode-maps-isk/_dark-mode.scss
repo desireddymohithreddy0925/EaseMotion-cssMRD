@@ -4,20 +4,20 @@
 
 // Light Theme Tokens Map
 $light-theme: (
-  'color-bg': #f8fafc,
-  'color-surface': #ffffff,
-  'color-text': #1e293b,
-  'color-muted': #64748b,
-  'color-primary': #6c63ff
+  'color-bg': var(--ease-color-neutral-50, #f8fafc),
+  'color-surface': var(--ease-color-surface, #ffffff),
+  'color-text': var(--ease-color-text, #1e293b),
+  'color-muted': var(--ease-color-neutral-500, #64748b),
+  'color-primary': var(--ease-color-primary, #6c63ff)
 );
 
 // Dark Theme Tokens Map
 $dark-theme: (
-  'color-bg': #0f172a,
-  'color-surface': #1e293b,
-  'color-text': #f8fafc,
-  'color-muted': #94a3b8,
-  'color-primary': #8b5cf6
+  'color-bg': var(--ease-color-neutral-900, #0f172a),
+  'color-surface': var(--ease-color-text, #1e293b),
+  'color-text': var(--ease-color-neutral-50, #f8fafc),
+  'color-muted': var(--ease-color-neutral-400, #94a3b8),
+  'color-primary': var(--ease-color-secondary, #8b5cf6)
 );
 
 // Generate default variables inside :root selector

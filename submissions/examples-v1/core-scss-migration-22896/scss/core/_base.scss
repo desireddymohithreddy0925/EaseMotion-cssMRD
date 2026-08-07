@@ -157,7 +157,7 @@ a:focus-visible {
 /* ── Selection ─────────────────────────────────────────────── */
 ::selection {
   background-color: var(--ease-color-primary);
-  color: var(--ease-selection-color, #ffffff);
+  color: var(--ease-selection-color, var(--ease-color-surface, #ffffff));
 }
 
 @media (prefers-reduced-motion: reduce) {

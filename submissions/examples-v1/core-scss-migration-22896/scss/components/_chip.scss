@@ -67,14 +67,14 @@
 .ease-chip-group input[type="checkbox"]:checked + .ease-chip {
   background: var(--ease-color-primary, #6366f1);
   border-color: var(--ease-color-primary, #6366f1);
-  color: #ffffff;
+  color: var(--ease-color-surface, #ffffff);
   box-shadow: 0 2px 8px rgba(99, 102, 241, 0.3);
 }
 
 .ease-chip-group input[type="checkbox"]:checked + .ease-chip::before {
   content: '✓';
   width: 14px;
-  color: #ffffff;
+  color: var(--ease-color-surface, #ffffff);
   font-size: 0.75rem;
   line-height: 14px;
 }
@@ -113,7 +113,7 @@
   .ease-chip-group input[type="checkbox"]:checked + .ease-chip {
     background: var(--ease-color-primary, #6366f1);
     border-color: var(--ease-color-primary, #6366f1);
-    color: #ffffff;
+    color: var(--ease-color-surface, #ffffff);
     box-shadow: 0 2px 8px rgba(99, 102, 241, 0.5);
   }
 }

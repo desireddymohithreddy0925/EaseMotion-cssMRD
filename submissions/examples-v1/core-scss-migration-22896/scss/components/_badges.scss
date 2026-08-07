@@ -14,7 +14,7 @@
     min-width: 20px;
     font-size: var(--ease-text-xs);
     font-weight: 700;
-    color: #ffffff;
+    color: var(--ease-color-surface, #ffffff);
     background-color: var(--ease-color-primary);
     border-radius: var(--ease-radius-full);
     box-shadow: var(--ease-shadow-sm);

@@ -1,6 +1,6 @@
 @layer easemotion-components {
   .ease-skeleton {
-    background: linear-gradient(90deg, #e2e8f0 25%, #f1f5f9 50%, #e2e8f0 75%);
+    background: linear-gradient(90deg, var(--ease-color-neutral-200, #e2e8f0) 25%, var(--ease-color-neutral-100, #f1f5f9) 50%, var(--ease-color-neutral-200, #e2e8f0) 75%);
     background-size: 200% 100%;
     animation: ease-kf-shimmer 1.5s ease-in-out infinite;
     border-radius: var(--ease-radius-md, 0.5rem);
