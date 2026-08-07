@@ -119,4 +119,15 @@
       opacity: 1;
     }
   }
+
+  /* ── prefers-reduced-motion ─────────────────────────────────────────────── */
+  @media (prefers-reduced-motion: reduce) {
+    .ease-compare-row-header,
+    .ease-compare-table,
+    .ease-icon-check,
+    .ease-icon-cross {
+      transition: none !important;
+      animation: none !important;
+    }
+  }
 }

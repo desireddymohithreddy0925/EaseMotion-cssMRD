@@ -76,4 +76,15 @@
     right: 0;
     z-index: 1000;
   }
+
+  /* ── prefers-reduced-motion ─────────────────────────────────────────────── */
+  @media (prefers-reduced-motion: reduce) {
+    .ease-announce-bar,
+    .ease-announce-bar-close,
+    .ease-announce-bar-content,
+    .ease-announce-bar-dismiss {
+      transition: none !important;
+      animation: none !important;
+    }
+  }
 }

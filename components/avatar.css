@@ -130,4 +130,24 @@
   height: 4rem;
   font-size: 1rem;
 }
+
+  /* ── prefers-reduced-motion ─────────────────────────────────────────────── */
+  @media (prefers-reduced-motion: reduce) {
+    .ease-avatar,
+    .ease-avatar-group,
+    .ease-avatar-group-count,
+    .ease-avatar-group-count-lg,
+    .ease-avatar-group-count-sm,
+    .ease-avatar-group-count-xl,
+    .ease-avatar-group-item,
+    .ease-avatar-group-item-lg,
+    .ease-avatar-group-item-sm,
+    .ease-avatar-group-item-xl,
+    .ease-avatar-lg,
+    .ease-avatar-sm,
+    .ease-avatar-xl {
+      transition: none !important;
+      animation: none !important;
+    }
+  }
 }

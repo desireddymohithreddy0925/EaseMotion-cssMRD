@@ -59,4 +59,23 @@
     right: var(--ease-space-6, 1.5rem);
     z-index: 1000;
   }
+
+  /* ── prefers-reduced-motion ─────────────────────────────────────────────── */
+  @media (prefers-reduced-motion: reduce) {
+    .ease-toast,
+    .ease-toast-body,
+    .ease-toast-danger,
+    .ease-toast-enter,
+    .ease-toast-fixed-bottom-right,
+    .ease-toast-icon,
+    .ease-toast-info,
+    .ease-toast-leave,
+    .ease-toast-lg,
+    .ease-toast-sm,
+    .ease-toast-success,
+    .ease-toast-warning {
+      transition: none !important;
+      animation: none !important;
+    }
+  }
 }

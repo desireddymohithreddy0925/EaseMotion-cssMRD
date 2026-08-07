@@ -46,4 +46,20 @@
   }
   
   .ease-tag-btn:hover { opacity: 1; }
+
+  /* ── prefers-reduced-motion ─────────────────────────────────────────────── */
+  @media (prefers-reduced-motion: reduce) {
+    .ease-tag,
+    .ease-tag-btn,
+    .ease-tag-danger,
+    .ease-tag-info,
+    .ease-tag-lg,
+    .ease-tag-outline,
+    .ease-tag-sm,
+    .ease-tag-success,
+    .ease-tag-warning {
+      transition: none !important;
+      animation: none !important;
+    }
+  }
 }

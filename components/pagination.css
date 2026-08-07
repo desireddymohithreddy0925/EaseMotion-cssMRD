@@ -63,4 +63,17 @@
     height: 2.75rem;
     font-size: 1rem;
   }
+
+  /* ── prefers-reduced-motion ─────────────────────────────────────────────── */
+  @media (prefers-reduced-motion: reduce) {
+    .ease-page-btn,
+    .ease-page-btn-active,
+    .ease-page-btn-ellipsis,
+    .ease-pagination,
+    .ease-pagination-lg,
+    .ease-pagination-sm {
+      transition: none !important;
+      animation: none !important;
+    }
+  }
 }

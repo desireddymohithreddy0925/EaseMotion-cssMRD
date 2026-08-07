@@ -45,4 +45,19 @@
   }
   
   .ease-fab-hidden { display: none; }
+
+  /* ── prefers-reduced-motion ─────────────────────────────────────────────── */
+  @media (prefers-reduced-motion: reduce) {
+    .ease-fab,
+    .ease-fab-danger,
+    .ease-fab-extended,
+    .ease-fab-hidden,
+    .ease-fab-lg,
+    .ease-fab-sm,
+    .ease-fab-success,
+    .ease-fab-warning {
+      transition: none !important;
+      animation: none !important;
+    }
+  }
 }

@@ -40,4 +40,21 @@
   from { background-position: 1rem 0; }
   to { background-position: 0 0; }
 }
+
+  /* ── prefers-reduced-motion ─────────────────────────────────────────────── */
+  @media (prefers-reduced-motion: reduce) {
+    .ease-progress,
+    .ease-progress-animated,
+    .ease-progress-bar,
+    .ease-progress-danger,
+    .ease-progress-info,
+    .ease-progress-lg,
+    .ease-progress-sm,
+    .ease-progress-striped,
+    .ease-progress-success,
+    .ease-progress-warning {
+      transition: none !important;
+      animation: none !important;
+    }
+  }
 }
