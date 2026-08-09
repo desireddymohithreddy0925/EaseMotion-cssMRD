@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Reveal on Hover Grid</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="layout-container">
+        
+        <header class="section-header">
+            <h1 class="title">Image Grid Hover Reveal</h1>
+            <p class="subtitle">A responsive image gallery that elegantly reveals information overlays and quick actions entirely on hover.</p>
+        </header>
+
+        <div class="demo-area">
+            
+            <!-- 
+               [TECHNIQUE 1] Responsive CSS Grid Architecture:
+               The `.image-grid` container uses `grid-template-columns: repeat(auto-fill, minmax(280px, 1fr))` 
+               to automatically wrap and scale cards across any screen size without media queries.
+            -->
+            <div class="image-grid">
+                
+                <!-- Grid Item 1 -->
+                <div class="grid-item" tabindex="0">
+                    <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&q=80&w=600" alt="Red Nike Sneaker" class="item-image" loading="lazy">
+                    
+                    <!-- 
+                       [TECHNIQUE 2] The Hidden Overlay:
+                       This container sits perfectly on top of the image but starts completely transparent 
+                       and slightly shifted down (`translateY(20px)`). 
+                    -->
+                    <div class="item-overlay">
+                        <div class="overlay-content">
+                            <h3 class="item-title">Air Max Advance</h3>
+                            <p class="item-category">Performance Running</p>
+                            <p class="item-price">$129.99</p>
+                        </div>
+                        <div class="overlay-actions">
+                            <button class="action-btn primary-btn">Add to Cart</button>
+                            <button class="action-btn icon-btn" aria-label="Save to Wishlist">
+                                <svg viewBox="0 0 24 24" width="20" height="20">
+                                    <path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Grid Item 2 -->
+                <div class="grid-item" tabindex="0">
+                    <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&q=80&w=600" alt="Smart Watch" class="item-image" loading="lazy">
+                    <div class="item-overlay">
+                        <div class="overlay-content">
+                            <h3 class="item-title">Chrono Elite</h3>
+                            <p class="item-category">Smart Wearables</p>
+                            <p class="item-price">$249.00</p>
+                        </div>
+                        <div class="overlay-actions">
+                            <button class="action-btn primary-btn">Add to Cart</button>
+                            <button class="action-btn icon-btn" aria-label="Save to Wishlist">
+                                <svg viewBox="0 0 24 24" width="20" height="20">
+                                    <path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Grid Item 3 -->
+                <div class="grid-item" tabindex="0">
+                    <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&q=80&w=600" alt="Wireless Headphones" class="item-image" loading="lazy">
+                    <div class="item-overlay">
+                        <div class="overlay-content">
+                            <h3 class="item-title">Sonic Pro ANC</h3>
+                            <p class="item-category">Premium Audio</p>
+                            <p class="item-price">$189.50</p>
+                        </div>
+                        <div class="overlay-actions">
+                            <button class="action-btn primary-btn">Add to Cart</button>
+                            <button class="action-btn icon-btn" aria-label="Save to Wishlist">
+                                <svg viewBox="0 0 24 24" width="20" height="20">
+                                    <path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            
+        </div>
+    </div>
+
+</body>
+</html>

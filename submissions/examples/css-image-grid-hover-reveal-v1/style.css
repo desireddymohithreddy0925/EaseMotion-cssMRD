@@ -1,0 +1,299 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
+
+/* =========================================
+   Theming via Custom Properties
+   ========================================= */
+:root {
+    --bg-base: #f8fafc;
+    --text-primary: #0f172a;
+    --text-secondary: #64748b;
+    
+    --card-bg: #ffffff;
+    --card-radius: 16px;
+    
+    --overlay-bg: rgba(15, 23, 42, 0.85); /* Dark semi-transparent */
+    --overlay-text: #ffffff;
+    --overlay-text-muted: #94a3b8;
+    
+    --accent: #3b82f6;
+    --accent-hover: #2563eb;
+    
+    --shadow-md: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    --shadow-hover: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --bg-base: #0f172a;
+        --text-primary: #f8fafc;
+        --text-secondary: #94a3b8;
+        
+        --card-bg: #1e293b;
+        
+        --overlay-bg: rgba(0, 0, 0, 0.85);
+        
+        --accent: #60a5fa;
+        --accent-hover: #93c5fd;
+    }
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: var(--bg-base);
+    font-family: 'Inter', sans-serif;
+    color: var(--text-primary);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; /* So grid can expand naturally */
+    -webkit-font-smoothing: antialiased;
+}
+
+.layout-container {
+    max-width: 1200px;
+    width: 100%;
+    padding: 60px 20px;
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.title {
+    font-size: 2.5rem;
+    font-weight: 600;
+    margin: 0 0 16px 0;
+    letter-spacing: -0.5px;
+}
+
+.subtitle {
+    color: var(--text-secondary);
+    font-size: 1.15rem;
+    margin: 0 auto;
+    max-width: 600px;
+    line-height: 1.6;
+}
+
+
+/* =========================================
+   Image Grid Layout
+   ========================================= */
+
+.image-grid {
+    display: grid;
+    /* Auto-fill creates as many columns as fit, while minmax ensures they never shrink below 280px */
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 30px;
+    width: 100%;
+}
+
+
+/* =========================================
+   Grid Item (The Card)
+   ========================================= */
+
+.grid-item {
+    position: relative;
+    border-radius: var(--card-radius);
+    overflow: hidden;
+    background-color: var(--card-bg);
+    box-shadow: var(--shadow-md);
+    aspect-ratio: 4/5; /* Keep cards uniformly tall */
+    cursor: pointer;
+    /* Hardware acceleration for smoother scaling */
+    transform: translateZ(0); 
+    transition: box-shadow 0.4s ease, transform 0.4s ease;
+}
+
+/* Optional: Slight lift on hover */
+.grid-item:hover,
+.grid-item:focus-visible {
+    box-shadow: var(--shadow-hover);
+    transform: translateY(-5px);
+    outline: none; /* Focus visible handles accessibility outline instead */
+}
+
+.grid-item:focus-visible {
+    outline: 3px solid var(--accent);
+    outline-offset: 4px;
+}
+
+
+/* =========================================
+   The Image
+   ========================================= */
+
+.item-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* Smooth transition for the scale effect */
+    transition: transform 0.6s cubic-bezier(0.2, 1, 0.3, 1);
+}
+
+/* [TECHNIQUE 3] Image Zoom Effect */
+.grid-item:hover .item-image,
+.grid-item:focus-visible .item-image {
+    transform: scale(1.08); /* Zooms in slightly on hover */
+}
+
+
+/* =========================================
+   The Reveal Overlay
+   ========================================= */
+
+.item-overlay {
+    position: absolute;
+    inset: 0; /* Shorthand for top, right, bottom, left: 0 */
+    background: var(--overlay-bg);
+    color: var(--overlay-text);
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 30px;
+    
+    /* 
+       [TECHNIQUE 4] The Reveal Animation Strategy:
+       We start with opacity 0 to hide it.
+       We also add a backdrop filter for a nice glassmorphism blur.
+    */
+    opacity: 0;
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    
+    transition: opacity 0.4s ease;
+}
+
+.grid-item:hover .item-overlay,
+.grid-item:focus-visible .item-overlay {
+    opacity: 1; /* Fade in */
+}
+
+
+/* =========================================
+   Overlay Content (Staggered Animation)
+   ========================================= */
+
+.overlay-content {
+    /* We push the text down initially */
+    transform: translateY(20px);
+    transition: transform 0.4s cubic-bezier(0.2, 1, 0.3, 1);
+    /* Small delay so the background fades in right before the text slides up */
+    transition-delay: 0.05s;
+}
+
+.overlay-actions {
+    display: flex;
+    gap: 12px;
+    /* Pushed down slightly more for a staggered effect */
+    transform: translateY(30px);
+    transition: transform 0.4s cubic-bezier(0.2, 1, 0.3, 1);
+    transition-delay: 0.1s;
+}
+
+/* When the card is hovered, slide everything back to its natural position (0) */
+.grid-item:hover .overlay-content,
+.grid-item:focus-visible .overlay-content,
+.grid-item:hover .overlay-actions,
+.grid-item:focus-visible .overlay-actions {
+    transform: translateY(0);
+}
+
+
+/* Typography inside overlay */
+.item-title {
+    margin: 0 0 8px 0;
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+.item-category {
+    margin: 0 0 16px 0;
+    font-size: 0.9rem;
+    color: var(--overlay-text-muted);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.item-price {
+    margin: 0;
+    font-size: 1.25rem;
+    font-weight: 500;
+    color: var(--accent); /* In dark mode, accent is lighter */
+}
+
+
+/* =========================================
+   Action Buttons
+   ========================================= */
+
+.action-btn {
+    border: none;
+    border-radius: 8px;
+    font-family: inherit;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.primary-btn {
+    flex: 1; /* Takes up remaining space */
+    background-color: var(--accent);
+    color: #ffffff;
+    padding: 12px 0;
+    font-size: 1rem;
+}
+
+.primary-btn:hover {
+    background-color: var(--accent-hover);
+}
+
+.icon-btn {
+    width: 44px;
+    height: 44px;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: var(--overlay-text);
+}
+
+.icon-btn:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+
+/* =========================================
+   Accessibility
+   ========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+    .grid-item {
+        transition: none;
+    }
+    
+    .grid-item:hover,
+    .grid-item:focus-visible {
+        transform: none;
+    }
+    
+    .item-image,
+    .item-overlay,
+    .overlay-content,
+    .overlay-actions {
+        transition: none !important;
+        transform: none !important;
+    }
+    
+    /* Still toggle opacity, but instantly without sliding */
+    .item-overlay {
+        opacity: 0;
+    }
+    .grid-item:hover .item-overlay,
+    .grid-item:focus-visible .item-overlay {
+        opacity: 1;
+    }
+}
