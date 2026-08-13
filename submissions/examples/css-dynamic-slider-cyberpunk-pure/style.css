@@ -1,0 +1,295 @@
+:root {
+    /* Cyberpunk Theme Colors */
+    --cyber-yellow: #fcee0a;
+    --cyber-pink: #ff003c;
+    --cyber-blue: #00f0ff;
+    --cyber-bg: #050505;
+    --cyber-grid: #1a1a1a;
+    --cyber-text: #ffffff;
+    --cyber-glitch-1: #00f0ff;
+    --cyber-glitch-2: #ff003c;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--cyber-bg);
+    background-image: 
+        linear-gradient(rgba(0, 240, 255, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0, 240, 255, 0.03) 1px, transparent 1px);
+    background-size: 30px 30px;
+    font-family: 'Share Tech Mono', monospace;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+/* =========================================
+   Cyberpunk Slider Container
+   ========================================= */
+.cyberpunk-container {
+    position: relative;
+    width: 100%;
+    max-width: 500px;
+    padding: 2rem;
+    /* Clipped corners effect typical of cyberpunk UI */
+    clip-path: polygon(0 0, 100% 0, 100% calc(100% - 20px), calc(100% - 20px) 100%, 0 100%);
+    background: rgba(5, 5, 5, 0.8);
+    border: 1px solid rgba(0, 240, 255, 0.3);
+    border-left: 4px solid var(--cyber-blue);
+    box-shadow: 
+        inset 0 0 20px rgba(0, 240, 255, 0.1),
+        0 0 15px rgba(0, 240, 255, 0.2);
+}
+
+/* Decorative corner lines */
+.cyberpunk-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 40px;
+    height: 40px;
+    border-top: 2px solid var(--cyber-pink);
+    border-right: 2px solid var(--cyber-pink);
+    opacity: 0.7;
+}
+
+/* =========================================
+   Glitch Overlay Effect
+   ========================================= */
+.glitch-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: repeating-linear-gradient(
+        0deg,
+        rgba(0, 0, 0, 0.15) 0px,
+        rgba(0, 0, 0, 0.15) 1px,
+        transparent 1px,
+        transparent 2px
+    );
+    pointer-events: none;
+    z-index: 10;
+    opacity: 0.5;
+}
+
+/* =========================================
+   Labels & Typography
+   ========================================= */
+.cyber-label {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 1.5rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.cyber-text {
+    color: var(--cyber-blue);
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-shadow: 0 0 5px rgba(0, 240, 255, 0.5);
+    position: relative;
+}
+
+/* Text Glitch Hover Effect */
+.cyberpunk-container:hover .cyber-text {
+    animation: glitch-anim-text 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) both infinite;
+}
+
+.cyber-value {
+    color: var(--cyber-yellow);
+    font-size: 0.8rem;
+    opacity: 0.8;
+}
+
+@keyframes glitch-anim-text {
+    0% { transform: translate(0); text-shadow: 0 0 5px rgba(0, 240, 255, 0.5); }
+    20% { transform: translate(-2px, 1px); text-shadow: 2px 0 var(--cyber-pink), -2px 0 var(--cyber-blue); }
+    40% { transform: translate(2px, -1px); text-shadow: 0 0 5px rgba(0, 240, 255, 0.5); }
+    60% { transform: translate(-1px, 2px); text-shadow: -2px 0 var(--cyber-pink), 2px 0 var(--cyber-blue); }
+    80% { transform: translate(1px, -2px); text-shadow: 0 0 5px rgba(0, 240, 255, 0.5); }
+    100% { transform: translate(0); text-shadow: 0 0 5px rgba(0, 240, 255, 0.5); }
+}
+
+/* =========================================
+   Slider Track & Container
+   ========================================= */
+.slider-track-container {
+    position: relative;
+    width: 100%;
+    height: 40px; /* Space for the thumb to glow */
+    display: flex;
+    align-items: center;
+}
+
+.cyber-slider {
+    -webkit-appearance: none;
+    width: 100%;
+    height: 8px;
+    background: #222;
+    outline: none;
+    position: relative;
+    z-index: 2;
+    /* Track styling via clip-path for edgy look */
+    clip-path: polygon(0 0, 100% 0, calc(100% - 5px) 100%, 0 100%);
+    border: 1px solid #333;
+    transition: all 0.3s;
+}
+
+/* Cyberpunk slider fill logic: using CSS variables or linear gradient
+   Since pure CSS without JS can't perfectly track value for the fill,
+   we rely on WebKit/Moz specific pseudo elements to style the progress */
+
+/* Webkit (Chrome, Safari, Edge) */
+.cyber-slider::-webkit-slider-runnable-track {
+    width: 100%;
+    height: 8px;
+    cursor: pointer;
+    background: transparent; /* We let the input background show through */
+}
+
+/* Firefox */
+.cyber-slider::-moz-range-track {
+    width: 100%;
+    height: 8px;
+    cursor: pointer;
+    background: #222;
+    clip-path: polygon(0 0, 100% 0, calc(100% - 5px) 100%, 0 100%);
+}
+
+.cyber-slider::-moz-range-progress {
+    background: linear-gradient(90deg, var(--cyber-blue), var(--cyber-pink));
+    height: 8px;
+    clip-path: polygon(0 0, 100% 0, calc(100% - 5px) 100%, 0 100%);
+}
+
+/* =========================================
+   Slider Thumb (The Handle)
+   ========================================= */
+.cyber-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    height: 24px;
+    width: 16px;
+    background: var(--cyber-yellow);
+    cursor: pointer;
+    margin-top: -8px; /* Centers it on the track */
+    clip-path: polygon(0 0, 100% 0, 100% calc(100% - 8px), calc(100% - 8px) 100%, 0 100%);
+    box-shadow: -5px 0 15px rgba(252, 238, 10, 0.8);
+    position: relative;
+    transition: transform 0.1s;
+}
+
+.cyber-slider::-moz-range-thumb {
+    height: 24px;
+    width: 16px;
+    background: var(--cyber-yellow);
+    cursor: pointer;
+    border: none;
+    clip-path: polygon(0 0, 100% 0, 100% calc(100% - 8px), calc(100% - 8px) 100%, 0 100%);
+    border-radius: 0;
+    transition: transform 0.1s;
+}
+
+/* Thumb Hover/Active effects */
+.cyber-slider:hover::-webkit-slider-thumb {
+    transform: scale(1.1);
+    background: #fff;
+    box-shadow: -5px 0 25px rgba(255, 255, 255, 0.9);
+}
+.cyber-slider:hover::-moz-range-thumb {
+    transform: scale(1.1);
+    background: #fff;
+}
+
+.cyber-slider:active::-webkit-slider-thumb {
+    background: var(--cyber-pink);
+    box-shadow: -5px 0 25px rgba(255, 0, 60, 0.9);
+}
+.cyber-slider:active::-moz-range-thumb {
+    background: var(--cyber-pink);
+}
+
+/* Focus outline for accessibility */
+.cyber-slider:focus {
+    outline: none;
+}
+
+.cyber-slider:focus::-webkit-slider-thumb {
+    outline: 2px solid var(--cyber-blue);
+    outline-offset: 4px;
+}
+.cyber-slider:focus::-moz-range-thumb {
+    outline: 2px solid var(--cyber-blue);
+    outline-offset: 4px;
+}
+
+/* =========================================
+   Decorative Cyber Elements below slider
+   ========================================= */
+.cyber-decorative-bars {
+    display: flex;
+    gap: 4px;
+    margin-top: 1rem;
+    height: 10px;
+}
+
+.bar {
+    height: 100%;
+    background: rgba(0, 240, 255, 0.3);
+    clip-path: polygon(0 0, calc(100% - 4px) 0, 100% 100%, 4px 100%);
+    animation: pulse-bar 2s infinite alternate;
+}
+
+.bar-1 { width: 40%; animation-delay: 0s; }
+.bar-2 { width: 10%; animation-delay: 0.2s; background: rgba(255, 0, 60, 0.5); }
+.bar-3 { width: 15%; animation-delay: 0.4s; }
+.bar-4 { width: 5%; animation-delay: 0.1s; background: rgba(252, 238, 10, 0.5); }
+.bar-5 { width: 30%; animation-delay: 0.5s; }
+
+@keyframes pulse-bar {
+    0% { opacity: 0.3; }
+    100% { opacity: 1; }
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+    .cyberpunk-container {
+        max-width: 90%;
+        padding: 1.5rem;
+    }
+    
+    .cyber-text {
+        font-size: 1rem;
+    }
+    
+    .cyber-value {
+        font-size: 0.7rem;
+    }
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+    .bar {
+        animation: none;
+        opacity: 0.8;
+    }
+    
+    .cyberpunk-container:hover .cyber-text {
+        animation: none;
+    }
+    
+    .cyber-slider {
+        transition: none;
+    }
+}
