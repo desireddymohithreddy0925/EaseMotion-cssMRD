@@ -1,0 +1,14 @@
+:root { --bg: #09090b; --neon: #ff0055; --cyan: #00ffff; }
+body { background: var(--bg); display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; font-family: 'Courier New', monospace; }
+.cyber-px-toggle { cursor: pointer; perspective: 400px; display: inline-block; }
+.cyber-px-toggle input { display: none; }
+.cp-track { position: relative; width: 140px; height: 50px; background: #111; border: 2px solid var(--neon); box-shadow: 0 0 10px rgba(255,0,85,0.4); transform-style: preserve-3d; transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
+.cp-label { position: absolute; top: 50%; transform: translateY(-50%); font-weight: bold; font-size: 0.85rem; letter-spacing: 1px; z-index: 1; transition: opacity 0.3s; }
+.cp-off { right: 15px; color: var(--neon); text-shadow: 0 0 5px var(--neon); }
+.cp-on { left: 15px; color: var(--cyan); text-shadow: 0 0 5px var(--cyan); opacity: 0; }
+.cp-thumb { position: absolute; top: 2px; left: 2px; width: 66px; height: 42px; background: repeating-linear-gradient(45deg, var(--neon), var(--neon) 5px, #900 5px, #900 10px); box-shadow: 0 0 15px var(--neon); transform: translateZ(20px); transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); z-index: 2; }
+input:checked + .cp-track { border-color: var(--cyan); box-shadow: 0 0 10px rgba(0,255,255,0.4); transform: rotateY(15deg); }
+input:not(:checked) + .cp-track:hover { transform: rotateY(-15deg); }
+input:checked + .cp-track .cp-off { opacity: 0; }
+input:checked + .cp-track .cp-on { opacity: 1; }
+input:checked + .cp-track .cp-thumb { transform: translateX(66px) translateZ(20px); background: repeating-linear-gradient(45deg, var(--cyan), var(--cyan) 5px, #055 5px, #055 10px); box-shadow: 0 0 15px var(--cyan); }

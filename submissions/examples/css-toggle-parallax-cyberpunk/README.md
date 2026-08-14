@@ -1,0 +1,2 @@
+# Parallax Toggle (Cyberpunk)
+A 3D Cyberpunk toggle switch. The hazard-striped thumb floats in 3D space (`translateZ`) above the track, and clicking the toggle physically tilts the entire container on the Y-axis.
